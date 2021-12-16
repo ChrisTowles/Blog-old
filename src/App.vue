@@ -10,7 +10,7 @@
 useHead({
   meta: [
     { property: 'og:title', content: 'Chris Towles' },
-    { property: 'og:image', content: 'https://antfu.me/avatar.png' },
+    { property: 'og:image', content: 'https://towles.dev/avatar.png' },
     { name: 'description', content: 'Chris Towles \'s Portfolio' },
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:creator', content: '@Chris_Towles' },

@@ -20,9 +20,6 @@
           <span class="lt-md:hidden">Blog</span>
           <ri-article-line class="md:hidden" />
         </router-link>
-        <router-link to="/talks" class="lt-md:hidden">
-          Talks
-        </router-link>
         
         <router-link to="/bookmarks" title="Bookmarks" class="lt-md:hidden">
           <ri-bookmark-line />

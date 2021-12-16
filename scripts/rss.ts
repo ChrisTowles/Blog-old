@@ -7,10 +7,10 @@ import type { FeedOptions, Item } from 'feed'
 import { Feed } from 'feed'
 import { slugify } from './slugify'
 
-const DOMAIN = 'https://antfu.me'
+const DOMAIN = 'https://towles.dev'
 const AUTHOR = {
-  name: 'Anthony Fu',
-  email: 'hi@antfu.me',
+  name: 'Chris.Towles',
+  email: 'hi.chris.towles@gmail.com',
   link: DOMAIN,
 }
 const markdown = MarkdownIt({
@@ -21,7 +21,6 @@ const markdown = MarkdownIt({
 
 async function run() {
   await buildBlogRSS()
-  await buildNotesRSS()
 }
 
 async function buildBlogRSS() {
