@@ -1,12 +1,9 @@
 ---
-title: example of how migrate vue 2 vueify jest to vue2 vite and vitest
+title: Example of how migrate vue 2, vuetify to vite and vitest
 date: 2022-01-09T16:00:00.000+00:00
 lang: en
 duration: 15 min
 ---
-
-
-# Example of migrate a Vue 2 + Vueify and Jest to Vite and Vitest
 
 So my main project at work is a [Vue 2](https://vuejs.org/) and [Vuetify 2](https://vuetifyjs.com/) site, but privately I have been playing with [Vue 3](https://vuejs.org/) and really loved the [Composition API](https://staging.vuejs.org/guide/introduction.html#api-styles) to avoid `mixins`. Due to some new features we are planning building soon. I really wanted to write it in `vue 3`, to prevent needing to migrate it to `vue 3` after it was just finished in `vue 2`.
 
@@ -32,7 +29,7 @@ So the dream would be to get to `vue 3` but thats not practical without `Vuetify
 - don't upgrade to `vue 3` and keep `vuetify 2.X.X`
   - upgrade to v3 once its ready
 
-To be clear replacing `vuetify` has almost no upside for my employer.
+To be clear, replacing `vuetify` has almost no upside for my employer.
 
 - it would take alot of time to convert the large codebase.
 - likely to introduce bugs
@@ -40,7 +37,7 @@ To be clear replacing `vuetify` has almost no upside for my employer.
 - time and effort retraining the team.
 - moving away from framework others in the company already also uses.
 
-So its pretty easy to decided to do wait on doing the migration to `vue 3` and `vuetify 3` once its ready.
+So its pretty easy to decided to wait on doing the migration to `vue 3` and `vuetify 3` once its ready.
 
 ## New Goal - Vite and Composition API with vue 2
 
@@ -67,4 +64,4 @@ LINK_TO_REPO_Branch
 
 Show a template of it example of build commands.
 
-# To to migrate to vite
+## To to migrate to vite and composition-api
