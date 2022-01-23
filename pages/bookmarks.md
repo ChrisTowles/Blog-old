@@ -3,7 +3,7 @@ title: Bookmarks
 ---
 
 
-```ts
+```js
 import { Component, OnInit } from 'vue';
 
 ```
