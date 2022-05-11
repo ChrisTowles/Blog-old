@@ -2,9 +2,11 @@
   
 {
     "recommendations": [
-      "octref.vetur",
+      "Vue.volar",
+      "GitHub.copilot",
       "antfu.iconify",
       "dbaeumer.vscode-eslint",
-      // "bradlc.vscode-tailwindcss"
+      "valentjn.vscode-ltex",
     ]
   }
+  
