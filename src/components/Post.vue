@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { formatDate } from '/~/utils'
-
+import Tweet from "vue-tweet";
 defineProps({
   frontmatter: {
     type: Object,
@@ -65,7 +65,11 @@ onMounted(() => {
       {{ frontmatter.subtitle }}
     </p>
   </div>
+
+  
   <article ref="content">
+    
+   
     <slot />
   </article>
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8">

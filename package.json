@@ -13,7 +13,8 @@
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.2",
     "vue": "^3.2.26",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue-tweet": "^2.0.2"
   },
   "devDependencies": {
     "@iconify/json": "^2.0.9",
@@ -58,7 +59,5 @@
     "vite-plugin-yaml": "^1.0.5",
     "vite-ssg": "^0.16.2"
   },
-  "eslintConfig": {
-    
-  }
+  "eslintConfig": {}
 }

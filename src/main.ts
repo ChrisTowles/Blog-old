@@ -11,7 +11,7 @@ import type { RouterScrollBehavior } from 'vue-router'
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 import App from './App.vue'
-
+import Tweet from "vue-tweet";
 
 declare module 'vue-router' {
   interface RouteMeta {

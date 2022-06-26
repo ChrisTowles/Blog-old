@@ -7,7 +7,7 @@ import type { FeedOptions, Item } from 'feed'
 import { Feed } from 'feed'
 import { slugify } from './slugify'
 
-const DOMAIN = 'https://towles.dev'
+const DOMAIN = 'https://chris.towles.dev'
 const AUTHOR = {
   name: 'Chris.Towles',
   email: 'hi.chris.towles@gmail.com',
@@ -29,13 +29,13 @@ async function buildBlogRSS() {
   const options = {
     title: 'Chris Towles',
     description: 'Chris Towles\' Blog',
-    id: 'https://towles.dev/',
-    link: 'https://towles.dev/',
+    id: 'https://chris.towles.dev/',
+    link: 'https://chris.towles.dev/',
     copyright: 'CC BY-NC-SA 4.0 2021 © Chris Towles',
     feedLinks: {
-      json: 'https://towles.dev/feed.json',
-      atom: 'https://towles.dev/feed.atom',
-      rss: 'https://towles.dev/feed.xml',
+      json: 'https://chris.towles.dev/feed.json',
+      atom: 'https://chris.towles.dev/feed.atom',
+      rss: 'https://chris.towles.dev/feed.xml',
     },
   }
   const posts: any[] = (
@@ -73,8 +73,8 @@ async function buildBlogRSS() {
 
 async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = AUTHOR
-  options.image = 'https://towles.dev/avatar.png'
-  options.favicon = 'https://towles.dev/logo.png'
+  options.image = 'https://chris.towles.dev/avatar.png'
+  options.favicon = 'https://chris.towles.dev/logo.png'
 
   const feed = new Feed(options)
 
