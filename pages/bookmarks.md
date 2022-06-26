@@ -60,7 +60,6 @@ https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/
 Things a programmer won't tell you.
 
 
-
 ## Books
 - Pragmatic Programmer
 - The lean startup

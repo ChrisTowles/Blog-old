@@ -2,9 +2,8 @@
   
 {
     "recommendations": [
-      "octref.vetur",
       "antfu.iconify",
       "dbaeumer.vscode-eslint",
-      // "bradlc.vscode-tailwindcss"
+      "Vue.volar"
     ]
   }

@@ -58,7 +58,7 @@ There are some other features that I want but these are the MVP ones and they pr
 
 ## Recreate a mock Repo with Vue 2 and Vuetify
 
-To test out how hard the would be I recreated a simple mock repo with `vue 2` and `vuetify 2.X.X` with `@vue/cli-service`. and tested out the upgrade there.  If it works for a simple repo i can then try the more complex  monorepo at work.
+To test out how hard the would be I recreated a simple mock repo with `vue 2` and `vuetify 2.X.X` with `@vue/cli-service`. and tested out the upgrade there.  If it works for a simple repo i can then try the more complex monorepo at work.
 
 LINK_TO_REPO_Branch
 
