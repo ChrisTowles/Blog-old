@@ -20,10 +20,16 @@ Here are a few of the events and things have been in my mind.
 First you need to know that I never [tweet](https://twitter.com/Chris_Towles). I think less than 10 in my life.
 
 Anyway after using and reading the source code of [glide data grid](https://github.com/glideapps/glide-data-grid) I just through to send a tweet saying thanks because it why not, it totally deserved it and made me love the the project i am using it for.
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Thank You <a href="https://twitter.com/glideapps?ref_src=twsrc%5Etfw">@glideapps</a> and <a href="https://twitter.com/jassmith87?ref_src=twsrc%5Etfw">@jassmith87</a>! Your Glide Data Grid is without a doubt the best data grid on the internet. I&#39;m even using it in a vue app because its just that much better than everything else! <br>And trust me I looked. <a href="https://t.co/dPsxTYuF2Z">https://t.co/dPsxTYuF2Z</a></p>&mdash; Chris Towles (@Chris_Towles) <a href="https://twitter.com/Chris_Towles/status/1539814088666238976?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+To my shock I got a reply from Jason himself.
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Thank you so much amigo :) Let me know if you have any problems.</p>&mdash; Jason Smith (@jassmith87) <a href="https://twitter.com/jassmith87/status/1539816474054840320?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+And he even retweeted my tweet.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shameless retweet because I&#39;m proud. <a href="https://t.co/t23VqcI7Mq">https://t.co/t23VqcI7Mq</a></p>&mdash; Jason Smith (@jassmith87) <a href="https://twitter.com/jassmith87/status/1539816533261619200?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-To my shock I got a reply from Jason himself. And he even retweeted my tweet. I was really surprised. It made my day and more importantly made me think. I use library's all the time and never give back. I learn so much by standing on the shoulders of giants. I have the skills to help, to contribute to the open source community and never find the time. And to Jason its not a Shameless retweet, you should be proud. Thanks for sharing your code with the rest of us.
+I was really surprised. It made my day and more importantly made me think. I use library's all the time and never give back. I learn so much by standing on the shoulders of giants. I have the skills to help, to contribute to the open source community and never find the time. And to Jason its not a Shameless retweet, you should be proud. Thanks for sharing your code with the rest of us.
 
 > TODO: I will do anther post about just the amazing [glide data grid](https://github.com/glideapps/glide-data-grid). Its basically fully functional, easy to use, data grid with really similar excel or google sheets like functionality for things like keyboard navigation, filling and filtering and copying and paste. It is a really great library considering how historically bad data grid libraries are.
 
