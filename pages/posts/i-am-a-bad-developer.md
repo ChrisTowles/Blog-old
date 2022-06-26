@@ -13,21 +13,21 @@ And the collusion: "I am a bad developer".
 
 I've been thinking about my software career, not the Craftsmanship. Not just do i write tests or refactor but am i a good developer? For the community, for my self and for my career.
 
-Here are a few of the events and things have been in my mind.
+Here are a few of the events and things have been on my mind.
 
 ### Tweet reply and Re-tweet from a programming hero
 
 First you need to know that I never [tweet](https://twitter.com/Chris_Towles). I think less than 10 in my life.
 
 Anyway after using and reading the source code of [glide data grid](https://github.com/glideapps/glide-data-grid) I just through to send a tweet saying thanks because it why not, it totally deserved it and made me love the the project i am using it for.
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Thank You <a href="https://twitter.com/glideapps?ref_src=twsrc%5Etfw">@glideapps</a> and <a href="https://twitter.com/jassmith87?ref_src=twsrc%5Etfw">@jassmith87</a>! Your Glide Data Grid is without a doubt the best data grid on the internet. I&#39;m even using it in a vue app because its just that much better than everything else! <br>And trust me I looked. <a href="https://t.co/dPsxTYuF2Z">https://t.co/dPsxTYuF2Z</a></p>&mdash; Chris Towles (@Chris_Towles) <a href="https://twitter.com/Chris_Towles/status/1539814088666238976?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Thank You <a href="https://twitter.com/glideapps?ref_src=twsrc%5Etfw">@glideapps</a> and <a href="https://twitter.com/jassmith87?ref_src=twsrc%5Etfw">@jassmith87</a>! Your Glide Data Grid is without a doubt the best data grid on the internet. I&#39;m even using it in a vue app because its just that much better than everything else! <br>And trust me I looked. <a href="https://t.co/dPsxTYuF2Z">https://t.co/dPsxTYuF2Z</a></p>&mdash; Chris Towles (@Chris_Towles) <a href="https://twitter.com/Chris_Towles/status/1539814088666238976?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote>
 
 To my shock I got a reply from Jason himself.
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Thank you so much amigo :) Let me know if you have any problems.</p>&mdash; Jason Smith (@jassmith87) <a href="https://twitter.com/jassmith87/status/1539816474054840320?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Thank you so much amigo :) Let me know if you have any problems.</p>&mdash; Jason Smith (@jassmith87) <a href="https://twitter.com/jassmith87/status/1539816474054840320?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote>
 
 And he even retweeted my tweet.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shameless retweet because I&#39;m proud. <a href="https://t.co/t23VqcI7Mq">https://t.co/t23VqcI7Mq</a></p>&mdash; Jason Smith (@jassmith87) <a href="https://twitter.com/jassmith87/status/1539816533261619200?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Shameless retweet because I&#39;m proud. <a href="https://t.co/t23VqcI7Mq">https://t.co/t23VqcI7Mq</a></p>&mdash; Jason Smith (@jassmith87) <a href="https://twitter.com/jassmith87/status/1539816533261619200?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote>
 
 I was really surprised. It made my day and more importantly made me think. I use library's all the time and never give back. I learn so much by standing on the shoulders of giants. I have the skills to help, to contribute to the open source community and never find the time. And to Jason its not a Shameless retweet, you should be proud. Thanks for sharing your code with the rest of us.
 
@@ -37,7 +37,7 @@ I was really surprised. It made my day and more importantly made me think. I use
 
 So while everyone I follow on twitter had a take on Microsoft/Github beginning to charge for the service, I had a different take.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It would have been very simple for github to be ethical when they made copilot. All they had to do was add an opt-in to github where you could mark your project as allowing copilot or not. Whether or not what they&#39;re doing turns out to be legal, they eschewed the ethical option.</p>&mdash; Casey Muratori (@cmuratori) <a href="https://twitter.com/cmuratori/status/1540078652246749184?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It would have been very simple for github to be ethical when they made copilot. All they had to do was add an opt-in to github where you could mark your project as allowing copilot or not. Whether or not what they&#39;re doing turns out to be legal, they eschewed the ethical option.</p>&mdash; Casey Muratori (@cmuratori) <a href="https://twitter.com/cmuratori/status/1540078652246749184?ref_src=twsrc%5Etfw">June 23, 2022</a></blockquote>
 
 Every developer I follow had code that had been used in training github copilot.
 
