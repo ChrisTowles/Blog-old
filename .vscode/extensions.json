@@ -5,5 +5,8 @@
       "antfu.iconify",
       "dbaeumer.vscode-eslint",
       "Vue.volar"
+      "GitHub.copilot",
+      "valentjn.vscode-ltex",
     ]
   }
+  
