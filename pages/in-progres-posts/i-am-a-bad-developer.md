@@ -7,14 +7,24 @@ duration: 7 min
 
 So a few things have happened lately that have have made reflect on what type of developer I am.
 
-- the great github copolite debete 
+- the great github copolite debete
 - A Tweet i posted got replied to by one of programmer heros.
 - Thinking about Career Driection
 - Talking with my twin brother, and him pushing me to learn more `Rust`.
 - reading 11 level programmer
 - finding several amazing repos that Completly altered the way i saw a few things
 
-##
+## github copolite
+
+So while everyone i follow on twitter from
+
+but there the problem. It didn't hurt. me and it should have.
+
+
+## Tweet from heros
+
+people i would love to work with, people i could learn from.
+
 
 ## Career Direction - I solve problems
 
@@ -24,14 +34,14 @@ That architecture and systems design is really just devops with a Differnt name.
 
 what have i been doing lately, for years professionally. I mean working avovouuly but to what end. I currently am the senior member of a small team at GE Aviation.
 
+## Level 11 developer
 
-## github copolite
 
-So while everyone i follow on twitter from 
 
-## Lately i've
 
-##
+## I have next 
+
+
 
 @Jason.
 
