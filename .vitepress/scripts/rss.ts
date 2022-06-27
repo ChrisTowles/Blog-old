@@ -48,6 +48,7 @@ async function buildBlogRSS() {
     await Promise.all(
       files.filter(i => !i.includes('index'))
         .map(async(i) => {
+<<<<<<< HEAD:.vitepress/scripts/rss.ts
    
 
 
@@ -72,6 +73,9 @@ async function buildBlogRSS() {
       )
 
   */
+=======
+          console.log('rss post:', i)
+>>>>>>> 6693a6836713c038518b492d6abce03ff9cb5639:_REMOVE/scripts/rss.ts
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 
@@ -104,8 +108,13 @@ async function buildBlogRSS() {
 
 async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = AUTHOR
+<<<<<<< HEAD:.vitepress/scripts/rss.ts
   options.image = ogImage
   options.favicon = `${ogUrl}favicon.png`
+=======
+  options.image = 'https://chris.towles.dev/og.png'
+  options.favicon = 'https://chris.towles.dev/favicon.png'
+>>>>>>> 6693a6836713c038518b492d6abce03ff9cb5639:_REMOVE/scripts/rss.ts
 
   const feed = new Feed(options)
 

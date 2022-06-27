@@ -15,7 +15,10 @@ specifiers:
   gray-matter: ^4.0.3
   https-localhost: ^4.7.1
   markdown-it: ^13.0.1
+<<<<<<< HEAD
   pathe: ^0.3.0
+=======
+>>>>>>> 6693a6836713c038518b492d6abce03ff9cb5639
   react: '>= 16.8.0 < 19.0.0'
   react-dom: '>= 16.8.0 < 19.0.0'
   unocss: ^0.39.3
@@ -47,7 +50,10 @@ devDependencies:
   gray-matter: 4.0.3
   https-localhost: 4.7.1
   markdown-it: 13.0.1
+<<<<<<< HEAD
   pathe: 0.3.0
+=======
+>>>>>>> 6693a6836713c038518b492d6abce03ff9cb5639
   unocss: 0.39.3_vite@2.9.12
   unplugin-vue-components: 0.19.9_vite@2.9.12+vue@3.2.37
   vite-plugin-pwa: 0.12.0_vite@2.9.12
