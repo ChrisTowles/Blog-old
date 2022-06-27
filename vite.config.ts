@@ -1,166 +1,140 @@
-import { resolve } from 'path'
-import type { UserConfig } from 'vite'
-import fs from 'fs-extra'
-import Pages from 'vite-plugin-pages'
-import Inspect from 'vite-plugin-inspect'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
+import fs from 'fs'
+import type { Plugin } from 'vite'
+import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
-import Markdown from 'vite-plugin-md'
-import Vue from '@vitejs/plugin-vue'
-import Prism from 'markdown-it-prism'
-import matter from 'gray-matter'
-import AutoImport from 'unplugin-auto-import/vite'
-import anchor from 'markdown-it-anchor'
-import markdownAttr from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
-import { presetAttributify, presetUno } from 'unocss'
-import presetIcons from '@unocss/preset-icons'
-// @ts-expect-error
-import TOC from 'markdown-it-table-of-contents'
-import { slugify } from './scripts/slugify';
+import { presetAttributify, presetIcons, presetUno } from 'unocss'
+import { resolve } from 'pathe'
+import { VitePWA } from 'vite-plugin-pwa'
+import fg from 'fast-glob'
+import {
+  githubusercontentRegex,
+  pwaFontStylesRegex,
+  pwaFontsRegex,
+  vitestDescription,
+  vitestName,
+  vitestShortName,
+} from './.vitepress/meta'
+import SponsorLinkFix from './plugins/FixSponsorLink'
 
-import 'prismjs/components/prism-regex'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-xml-doc'
-import 'prismjs/components/prism-yaml'
-import 'prismjs/components/prism-json'
-import 'prismjs/components/prism-markdown'
-import 'prismjs/components/prism-java'
-import 'prismjs/components/prism-javadoclike'
-import 'prismjs/components/prism-javadoc'
-import 'prismjs/components/prism-jsdoc'
-
-const config: UserConfig = {
-  resolve: {
-    alias: [
-      { find: '/~/', replacement: `${resolve(__dirname, 'src')}/` },
-    ],
-  },
-  optimizeDeps: {
-    include: [
-      'vue',
-      'vue-router',
-      '@vueuse/core',
-      'dayjs',
-      'dayjs/plugin/localizedFormat',
-    ],
-  },
+export default defineConfig({
   plugins: [
+    Components({
+      include: [/\.vue/, /\.md/],
+      dirs: '.vitepress/components',
+      dts: '.vitepress/components.d.ts',
+    }),
     Unocss({
-      theme: {
-        fontFamily: {
-          sans: '"Inter", Inter var,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji',
-        },
-      },
+      shortcuts: [
+        ['btn', 'px-4 py-1 rounded inline-flex justify-center gap-2 text-white leading-30px children:mya !no-underline cursor-pointer disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
+      ],
       presets: [
-        presetIcons({
-          extraProperties: {
-            'display': 'inline-block',
-            'height': '1.2em',
-            'width': '1.2em',
-            'vertical-align': 'text-bottom',
-          },
+        presetUno({
+          dark: 'media',
         }),
         presetAttributify(),
-        presetUno(),
-      ],
-    }),
-
-    Vue({
-      include: [/\.vue$/, /\.md$/],
-    }),
-
-    Pages({
-      extensions: ['vue', 'md'],
-      pagesDir: 'pages',
-      extendRoute(route) {
-        const path = resolve(__dirname, route.component.slice(1))
-
-        if (!path.includes('projects.md')) {
-          const md = fs.readFileSync(path, 'utf-8')
-          const { data } = matter(md)
-          route.meta = Object.assign(route.meta || {}, { frontmatter: data })
-        }
-
-        return route
-      },
-    }),
-
-    Markdown({
-      wrapperComponent: 'post',
-      wrapperClasses: 'prose m-auto',
-      headEnabled: true,
-      markdownItOptions: {
-        quotes: '""\'\'',
-      },
-      markdownItSetup(md) {
-        md.use(Prism)
-        md.use(anchor, {
-          slugify,
-          permalink: anchor.permalink.linkInsideHeader({
-            symbol: '#',
-            renderAttrs: () => ({ 'aria-hidden': 'true' }),
-          }),
-        })
-
-        // @ts-expect-error
-        md.use(markdownAttr, {
-          pattern: /^https?:/,
-          attrs: {
-            target: '_blank',
-            rel: 'noopener',
-          },
-        })
-
-        md.use(TOC, {
-          includeLevel: [1, 2, 3],
-          slugify,
-        })
-      },
-    }),
-
-    AutoImport({
-      imports: [
-        'vue',
-        'vue-router',
-        '@vueuse/core',
-        '@vueuse/head',
-      ],
-    }),
-
-    Components({
-      extensions: ['vue', 'md'],
-      dts: true,
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      resolvers: [
-        IconsResolver({
-          componentPrefix: '',
+        presetIcons({
+          scale: 1.2,
         }),
       ],
     }),
-
-    Inspect(),
-
-    Icons({
-      defaultClass: 'inline',
-      defaultStyle: 'vertical-align: sub;',
+    SponsorLinkFix(),
+    IncludesPlugin(),
+    VitePWA({
+      outDir: '.vitepress/dist',
+      registerType: 'autoUpdate',
+      // include all static assets under public/
+      includeAssets: fg.sync('**/*.{png,svg,ico,txt}', { cwd: resolve(__dirname, 'public') }),
+      manifest: {
+        id: '/',
+        name: vitestName,
+        short_name: vitestShortName,
+        description: vitestDescription,
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'logo.svg',
+            sizes: '165x165',
+            type: 'image/svg',
+            purpose: 'any maskable',
+          },
+        ],
+      },
+      workbox: {
+        navigateFallbackDenylist: [/^\/new$/],
+        globPatterns: ['**/*.{css,js,html,woff2}'],
+        runtimeCaching: [
+          {
+            urlPattern: pwaFontsRegex,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: pwaFontStylesRegex,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'gstatic-fonts-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: githubusercontentRegex,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'githubusercontent-images-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
+      },
     }),
   ],
+})
 
-  build: {
-    rollupOptions: {
-      onwarn(warning, next) {
-        if (warning.code !== 'UNUSED_EXTERNAL_IMPORT')
-          next(warning)
-      },
+function IncludesPlugin(): Plugin {
+  return {
+    name: 'include-plugin',
+    enforce: 'pre',
+    transform(code, id) {
+      let changed = false
+      code = code.replace(/\[@@include\]\((.*?)\)/, (_, url) => {
+        changed = true
+        const full = resolve(id, url)
+        return fs.readFileSync(full, 'utf-8')
+      })
+      if (changed)
+        return code
     },
-  },
-
-  ssgOptions: {
-    formatting: 'minify',
-  },
+  }
 }
-
-export default config
