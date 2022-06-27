@@ -5,13 +5,19 @@ import matter from 'gray-matter'
 import MarkdownIt from 'markdown-it'
 import type { FeedOptions, Item } from 'feed'
 import { Feed } from 'feed'
+import { ogUrl, ogImage, authorName, email, siteShortName, siteDescription } from '../meta';
 import { slugify } from './slugify'
+import { join, resolve } from 'pathe'
 
-const DOMAIN = 'https://chris.towles.dev'
+const docsDir = resolve(__dirname, '../..')
+const postsDir = join(docsDir, 'post')
+const PostsJsonFilePath = resolve(docsDir, '.vitepress/posts-data.json')
+
+
 const AUTHOR = {
-  name: 'Chris.Towles',
-  email: 'hi.chris.towles@gmail.com',
-  link: DOMAIN,
+  name: authorName,
+  email: email,
+  link: ogUrl,
 }
 const markdown = MarkdownIt({
   html: true,
@@ -24,42 +30,68 @@ async function run() {
 }
 
 async function buildBlogRSS() {
-  const files = await fg('pages/posts/*.md')
+  const files = await fg('posts/*.md')
 
   const options = {
-    title: 'Chris Towles',
-    description: 'Chris Towles\' Blog',
-    id: 'https://chris.towles.dev/',
-    link: 'https://chris.towles.dev/',
-    copyright: 'CC BY-NC-SA 4.0 2021 © Chris Towles',
+    title: siteShortName,
+    description: siteDescription,
+    id: ogUrl,
+    link: ogUrl,
+    copyright: `CC BY-NC-SA 4.0 2022 © ${authorName}`,
     feedLinks: {
-      json: 'https://chris.towles.dev/feed.json',
-      atom: 'https://chris.towles.dev/feed.atom',
-      rss: 'https://chris.towles.dev/feed.xml',
+      json: `${ogUrl}feed.json`,
+      atom: `${ogUrl}feed.atom`,
+      rss: `${ogUrl}feed.xml`,
     },
   }
   const posts: any[] = (
     await Promise.all(
       files.filter(i => !i.includes('index'))
         .map(async(i) => {
+   
+
+
+/*
+      
+        articles.map(async (article) => {
+          const file = matter.read(`./blog/${article}`, {
+            excerpt: true,
+            excerpt_separator: '<!-- more -->'
+          })
+      
+          const { data, excerpt, path } = file
+          const contents = removeMd(excerpt).trim().split(/\r\n|\n|\r/)
+      
+          return {
+            ...data,
+            title: contents[0].replace(/\s{2,}/g, '').trim(),
+            path: path.replace(/\.md$/, '.html'),
+            excerpt: contents.slice(1).join('').replace(/\s{2,}/g, '').trim()
+          }
+        })
+      )
+
+  */
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
+
+          console.log('rss post:', data)
 
           if (data.lang !== 'en')
             return
 
           const html = markdown.render(content)
-            .replace('src="/', `src="${DOMAIN}/`)
+            .replace('src="/', `src="${ogUrl}/`)
 
           if (data.image?.startsWith('/'))
-            data.image = DOMAIN + data.image
+            data.image = ogUrl + data.image
 
           return {
             ...data,
             date: new Date(data.date),
             content: html,
             author: [AUTHOR],
-            link: DOMAIN + i.replace(/^pages(.+)\.md$/, '$1'),
+            link: ogUrl + i.replace(/^pages(.+)\.md$/, '$1'),
           }
         }),
     ))
@@ -70,11 +102,10 @@ async function buildBlogRSS() {
   await writeFeed('feed', options, posts)
 }
 
-
 async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = AUTHOR
-  options.image = 'https://chris.towles.dev/avatar.png'
-  options.favicon = 'https://chris.towles.dev/logo.png'
+  options.image = ogImage
+  options.favicon = `${ogUrl}favicon.png`
 
   const feed = new Feed(options)
 

@@ -1,19 +1,20 @@
 // noinspection ES6PreferShortImport: IntelliJ IDE hint to avoid warning to use `~/contributors`, will fail on build if changed
 
 /* Texts */
-export const vitestName = 'Chris Towles'
-export const vitestShortName = 'Chris.Towles.dev'
-export const vitestDescription = 'A blazing fast unit test framework powered by Vite'
+export const authorName = 'Chris Towles'
+export const siteShortName = 'Chris.Towles.dev'
+export const siteDescription = 'A blazing fast unit test framework powered by Vite'
 
 /* CDN fonts and styles */
 export const googleapis = 'https://fonts.googleapis.com'
 export const gstatic = 'https://fonts.gstatic.com'
 export const font = `${googleapis}/css2?family=Readex+Pro:wght@200;400;600&display=swap`
 
-/* vitepress head */
+/* head settings */
 export const author = 'Chris Towels';
 export const ogUrl = 'https://chris.towles.dev/'
 export const ogImage = `${ogUrl}og.png`
+export const email = 'hi.chris.towles@gmail.com'
 
 /* GitHub and social links */
 export const github = 'https://github.com/ChrisTowles'

@@ -11,9 +11,9 @@ import {
   githubusercontentRegex,
   pwaFontStylesRegex,
   pwaFontsRegex,
-  vitestDescription,
-  vitestName,
-  vitestShortName,
+  authorName,
+  siteShortName,
+  siteDescription,
 } from './.vitepress/meta'
 import SponsorLinkFix from './plugins/FixSponsorLink'
 
@@ -47,9 +47,9 @@ export default defineConfig({
       includeAssets: fg.sync('**/*.{png,svg,ico,txt}', { cwd: resolve(__dirname, 'public') }),
       manifest: {
         id: '/',
-        name: vitestName,
-        short_name: vitestShortName,
-        description: vitestDescription,
+        name: authorName,
+        short_name: siteShortName,
+        description: siteDescription,
         theme_color: '#ffffff',
         icons: [
           {

@@ -7,27 +7,28 @@ import {
   ogImage,
   ogUrl,
   twitter,
-  vitestDescription,
-  vitestName,
+  siteShortName,
+  siteDescription,
+  authorName,
 } from './meta'
 // import { teamMembers } from './contributors'
 
 export default defineConfig({
   lang: 'en-US',
-  title: vitestName,
-  description: vitestDescription,
+  title: authorName,
+  description: siteDescription,
   head: [
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'alternate icon', href: '/favicon.ico', type: 'image/png', sizes: '16x16' }],
     ['meta', { name: 'author', content: author }],
-    ['meta', { name: 'keywords', content: 'vitest, vite, test, coverage, snapshot, react, vue, preact, svelte, solid, lit, ruby, cypress, puppeteer, jsdom, happy-dom, test-runner, jest, typescript, esm, tinypool, tinyspy, c8, node' }],
-    ['meta', { property: 'og:title', content: vitestName }],
-    ['meta', { property: 'og:description', content: vitestDescription }],
+    ['meta', { name: 'keywords', content: 'chris towles, towles, developer, programmer, development, full stack, vitest, vite, test, coverage, snapshot, react, vue, preact, svelte, solid, lit, ruby, cypress, puppeteer, jsdom, happy-dom, test-runner, jest, typescript, esm, tinypool, tinyspy, c8, node' }],
+    ['meta', { property: 'og:title', content: siteShortName }],
+    ['meta', { property: 'og:description', content: siteDescription }],
     ['meta', { property: 'og:url', content: ogUrl }],
     ['meta', { property: 'og:image', content: ogImage }],
-    ['meta', { name: 'twitter:title', content: vitestName }],
-    ['meta', { name: 'twitter:description', content: vitestDescription }],
+    ['meta', { name: 'twitter:title', content: siteShortName }],
+    ['meta', { name: 'twitter:description', content: siteDescription }],
     ['meta', { name: 'twitter:image', content: ogImage }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['link', { href: font, rel: 'stylesheet' }],
@@ -45,13 +46,13 @@ export default defineConfig({
     logo: '/logo.svg',
 
     editLink: {
-      pattern: 'https://github.com/vitest-dev/vitest/tree/main/docs/:path',
+      pattern: 'https://github.com/ChrisTowles/Blog/tree/main/docs/:path',
       text: 'Suggest changes to this page',
     },
 
     algolia: {
-      appId: 'ZTF29HGJ69',
-      apiKey: '9c3ced6fed60d2670bb36ab7e8bed8bc',
+      appId: '00000', // TODO: replace with my appId
+      apiKey: '000000 ', // TODO: replace with my appId
       indexName: 'vitest',
       // searchParameters: {
       //   facetFilters: ['tags:en'],
@@ -61,7 +62,6 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'twitter', link: twitter },
-      // { icon: 'discord', link: discord },
       { icon: 'github', link: github },
     ],
 
@@ -99,93 +99,6 @@ export default defineConfig({
             {
               text: 'Posts',
               link: '/posts/',
-            },
-          ],
-        },
-        {
-          text: 'Guide',
-          items: [
-            {
-              text: 'Why Vitest',
-              link: '/guide/why',
-            },
-            {
-              text: 'Getting Started',
-              link: '/guide/',
-            },
-            {
-              text: 'Features',
-              link: '/guide/features',
-            },
-            {
-              text: 'CLI',
-              link: '/guide/cli',
-            },
-            {
-              text: 'Test Filtering',
-              link: '/guide/filtering',
-            },
-            {
-              text: 'Coverage',
-              link: '/guide/coverage',
-            },
-            {
-              text: 'Snapshot',
-              link: '/guide/snapshot',
-            },
-            {
-              text: 'Mocking',
-              link: '/guide/mocking',
-            },
-            {
-              text: 'Vitest UI',
-              link: '/guide/ui',
-            },
-            {
-              text: 'In-source Testing',
-              link: '/guide/in-source',
-            },
-            {
-              text: 'Test Context',
-              link: '/guide/test-context',
-            },
-            {
-              text: 'Extending Matchers',
-              link: '/guide/extending-matchers',
-            },
-            {
-              text: 'IDE Integration',
-              link: '/guide/ide',
-            },
-            {
-              text: 'Debugging',
-              link: '/guide/debugging',
-            },
-            {
-              text: 'Comparisons',
-              link: '/guide/comparisons',
-            },
-            {
-              text: 'Migration Guide',
-              link: '/guide/migration',
-            },
-          ],
-        },
-        {
-          text: 'API',
-          items: [
-            {
-              text: 'API Reference',
-              link: '/api/',
-            },
-          ],
-        },
-        {
-          text: 'Config',
-          items: [
-            {
-              text: 'Config Reference',
-              link: '/config/',
             },
           ],
         },

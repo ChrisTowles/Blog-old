@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: home  # https://vitepress.vuejs.org/guide/theme-home-page.html#hero-section
 sidebar: false
 
 title: Chris.Towles.dev
