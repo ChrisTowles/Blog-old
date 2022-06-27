@@ -24,7 +24,7 @@ async function run() {
 }
 
 async function buildBlogRSS() {
-  const files = await fg('pages/posts/*.md')
+  const files = await fg('posts/*.md')
 
   const options = {
     title: 'Chris Towles',
@@ -42,6 +42,7 @@ async function buildBlogRSS() {
     await Promise.all(
       files.filter(i => !i.includes('index'))
         .map(async(i) => {
+          console.log('rss post:', i)
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 
@@ -73,8 +74,8 @@ async function buildBlogRSS() {
 
 async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = AUTHOR
-  options.image = 'https://chris.towles.dev/avatar.png'
-  options.favicon = 'https://chris.towles.dev/logo.png'
+  options.image = 'https://chris.towles.dev/og.png'
+  options.favicon = 'https://chris.towles.dev/favicon.png'
 
   const feed = new Feed(options)
 
