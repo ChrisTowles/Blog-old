@@ -23,8 +23,13 @@ export default defineConfig({
     ['link', { rel: 'alternate icon', href: '/favicon.ico', type: 'image/png', sizes: '16x16' }],
     ['meta', { name: 'author', content: author }],
     ['meta', { name: 'keywords', content: 'chris towles, towles, developer, programmer, development, full stack, vitest, vite, test, coverage, snapshot, react, vue, preact, svelte, solid, lit, ruby, cypress, puppeteer, jsdom, happy-dom, test-runner, jest, typescript, esm, tinypool, tinyspy, c8, node' }],
+<<<<<<< HEAD
     ['meta', { property: 'og:title', content: siteShortName }],
     ['meta', { property: 'og:description', content: siteDescription }],
+=======
+    ['meta', { property: 'og:title', content: vitestName }],
+    ['meta', { property: 'og:description', content: vitestDescription }],
+>>>>>>> 6693a6836713c038518b492d6abce03ff9cb5639
     ['meta', { property: 'og:url', content: ogUrl }],
     ['meta', { property: 'og:image', content: ogImage }],
     ['meta', { name: 'twitter:title', content: siteShortName }],
