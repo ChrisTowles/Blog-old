@@ -8,13 +8,13 @@ import { Feed } from 'feed'
 import { ogUrl, ogImage, authorName, email, siteShortName, siteDescription } from '../meta';
 import { slugify } from './slugify'
 import { join, resolve } from 'pathe'
+import { PostFeedData } from '.vitepress/posts'
 
 const docsDir = resolve(__dirname, '../..')
-const postsDir = join(docsDir, 'post')
 const PostsJsonFilePath = resolve(docsDir, '.vitepress/posts-data.json')
 
 
-const AUTHOR = {
+const AUTHOR: PostFeedData = {
   name: authorName,
   email: email,
   link: ogUrl,
@@ -48,34 +48,8 @@ async function buildBlogRSS() {
     await Promise.all(
       files.filter(i => !i.includes('index'))
         .map(async(i) => {
-<<<<<<< HEAD:.vitepress/scripts/rss.ts
-   
 
 
-/*
-      
-        articles.map(async (article) => {
-          const file = matter.read(`./blog/${article}`, {
-            excerpt: true,
-            excerpt_separator: '<!-- more -->'
-          })
-      
-          const { data, excerpt, path } = file
-          const contents = removeMd(excerpt).trim().split(/\r\n|\n|\r/)
-      
-          return {
-            ...data,
-            title: contents[0].replace(/\s{2,}/g, '').trim(),
-            path: path.replace(/\.md$/, '.html'),
-            excerpt: contents.slice(1).join('').replace(/\s{2,}/g, '').trim()
-          }
-        })
-      )
-
-  */
-=======
-          console.log('rss post:', i)
->>>>>>> 6693a6836713c038518b492d6abce03ff9cb5639:_REMOVE/scripts/rss.ts
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 
@@ -103,18 +77,14 @@ async function buildBlogRSS() {
 
   posts.sort((a, b) => +new Date(b.date) - +new Date(a.date))
 
+  await writePostsData(posts);
   await writeFeed('feed', options, posts)
 }
 
 async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   options.author = AUTHOR
-<<<<<<< HEAD:.vitepress/scripts/rss.ts
   options.image = ogImage
   options.favicon = `${ogUrl}favicon.png`
-=======
-  options.image = 'https://chris.towles.dev/og.png'
-  options.favicon = 'https://chris.towles.dev/favicon.png'
->>>>>>> 6693a6836713c038518b492d6abce03ff9cb5639:_REMOVE/scripts/rss.ts
 
   const feed = new Feed(options)
 
@@ -127,4 +97,11 @@ async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
   await fs.writeFile(`./dist/${name}.json`, feed.json1(), 'utf-8')
 }
 
+async function writePostsData(items: Item[]) {
+  
+
+  console.log(`writing posts data: ${PostsJsonFilePath}`)
+  await fs.writeFile(PostsJsonFilePath, JSON.stringify(items, null, 4), 'utf-8')
+
+}
 run()
