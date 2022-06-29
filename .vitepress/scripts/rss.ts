@@ -49,6 +49,27 @@ async function buildBlogRSS() {
       files.filter(i => !i.includes('index'))
         .map(async(i) => {
 
+/*
+      
+        articles.map(async (article) => {
+          const file = matter.read(`./blog/${article}`, {
+            excerpt: true,
+            excerpt_separator: '<!-- more -->'
+          })
+      
+          const { data, excerpt, path } = file
+          const contents = removeMd(excerpt).trim().split(/\r\n|\n|\r/)
+      
+          return {
+            ...data,
+            title: contents[0].replace(/\s{2,}/g, '').trim(),
+            path: path.replace(/\.md$/, '.html'),
+            excerpt: contents.slice(1).join('').replace(/\s{2,}/g, '').trim()
+          }
+        })
+      )
+
+  */
 
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
