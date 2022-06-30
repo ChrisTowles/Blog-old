@@ -1,15 +1,12 @@
 <script lang="ts">
 
-import { useData } from 'vitepress'
-
-const { page } = useData()
 
 
 </script>
 
 
 <template> 
-  {{page}}
+
   <div class="content">
     <div class="content-container">
       <main class="main">

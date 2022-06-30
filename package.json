@@ -6,7 +6,7 @@
     "build": "pnpm run prefetch && vitepress build && esno .vitepress/scripts/build-pwa.ts",
     "build-no-prefetch": "vitepress build && esno .vitepress/scripts/build-pwa.ts",
     "dev": "vitepress --port 3333 --open",
-    "prefetch": "esno .vitepress/scripts/fetch-posts.ts",
+    "prefetch": "esno .vitepress/scripts/rss.ts",
     "preview-https": "pnpm run build && serve .vitepress/dist",
     "preview-https-no-prefecth": "pnpm run build-no-prefetch && serve .vitepress/dist",
     "serve": "vitepress serve",

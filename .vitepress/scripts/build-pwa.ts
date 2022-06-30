@@ -4,12 +4,16 @@ import { optimizePages } from './assets'
 
 const rebuildPwa = async () => {
   const config = await resolveConfig({}, 'build', 'production')
-  // when `vite-plugin-pwa` is presented, use it to regenerate SW after rendering
+  //  when `vite-plugin-pwa` is presented, use it to regenerate SW after rendering
   const pwaPlugin: VitePluginPWAAPI = config.plugins.find(i => i.name === 'vite-plugin-pwa')?.api
   const pwa = pwaPlugin && !pwaPlugin.disabled
   await optimizePages(pwa)
-  if (pwa)
-    await pwaPlugin.generateSW()
+  if (pwa) {
+    console.log('PWA Plugin: generate service worker')
+
+    // TODO figure it out. 
+    //await pwaPlugin.generateSW()
+  }
 }
 
 rebuildPwa()

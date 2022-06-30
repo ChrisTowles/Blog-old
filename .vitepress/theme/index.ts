@@ -5,7 +5,7 @@ import '../style/main.css'
 import '../style/vars.css'
 import 'uno.css'
 
-import a from '../components/HomePage.vue';
+import HomePage from '../components/HomePage.vue';
 
 
 if (inBrowser)
