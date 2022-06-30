@@ -1,20 +1,35 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "module": "ESNext",
-      "target": "es2016",
-      "lib": ["DOM", "ESNext"],
-      "strict": true,
-      "esModuleInterop": true,
-      "incremental": true,
-      "skipLibCheck": true,
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "forceConsistentCasingInFileNames": true,
-      "types": ["vite/client", "vite-plugin-pages/client"],
-      "paths": {
-        "/~/*": ["src/*"]
-      }
-    },
-    "exclude": ["dist", "node_modules"]
-  }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["DOM", "ESNext"],
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    // https://vitejs.dev/guide/features.html#typescript-compiler-options
+
+    "isolatedModules": true, 
+    "types": [
+      "vite/client",
+      "vite-plugin-pwa/client",
+      "vitepress"
+    ],
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.vue",
+    ".vitepress/**/*.ts",
+    ".vitepress/**/*.vue"
+  ],
+  "exclude": ["dist", "node_modules"]
+}
