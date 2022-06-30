@@ -22,11 +22,5 @@ hero:
 
 features:
   - title: Recent Blog Posts
-    details: Recent Blog Posts.
-#  - title: Jest Compatible
-#    details: Expect, snapshot, coverage, and more - migrate from Jest is straightforward.
-#  - title: Smart & instant watch mode
-#    details: Only rerun the related changes, just like HMR for tests!
-#  - title: ESM, TypeScript, JSX
-#    details: Out-of-box ESM, TypeScript and JSX support powered by esbuild
+    # details: Recent Blog Posts
 ---

@@ -3,18 +3,20 @@ import fg from 'fast-glob'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
 import MarkdownIt from 'markdown-it'
-import type { FeedOptions, Item } from 'feed'
+import type { Author, FeedOptions, Item } from 'feed'
 import { Feed } from 'feed'
 import { ogUrl, ogImage, authorName, email, siteShortName, siteDescription } from '../meta';
-import { slugify } from './slugify'
-import { join, resolve } from 'pathe'
-import { PostFeedData } from '.vitepress/posts'
+// import { slugify } from './slugify'
+import { resolve } from 'pathe'
+
+
+
 
 const docsDir = resolve(__dirname, '../..')
 const PostsJsonFilePath = resolve(docsDir, '.vitepress/posts-data.json')
 
 
-const AUTHOR: PostFeedData = {
+const author: Author = {
   name: authorName,
   email: email,
   link: ogUrl,
@@ -36,6 +38,7 @@ async function buildBlogRSS() {
     title: siteShortName,
     description: siteDescription,
     id: ogUrl,
+    author: author,
     link: ogUrl,
     copyright: `CC BY-NC-SA 4.0 2022 © ${authorName}`,
     feedLinks: {
@@ -43,41 +46,41 @@ async function buildBlogRSS() {
       atom: `${ogUrl}feed.atom`,
       rss: `${ogUrl}feed.xml`,
     },
-  }
-  const posts: any[] = (
+  } as FeedOptions;
+  
+  const posts: Item[] = (
     await Promise.all(
       files.filter(i => !i.includes('index'))
         .map(async(i) => {
 
-/*
-      
-        articles.map(async (article) => {
-          const file = matter.read(`./blog/${article}`, {
-            excerpt: true,
-            excerpt_separator: '<!-- more -->'
-          })
-      
-          const { data, excerpt, path } = file
-          const contents = removeMd(excerpt).trim().split(/\r\n|\n|\r/)
-      
-          return {
-            ...data,
-            title: contents[0].replace(/\s{2,}/g, '').trim(),
-            path: path.replace(/\.md$/, '.html'),
-            excerpt: contents.slice(1).join('').replace(/\s{2,}/g, '').trim()
-          }
-        })
-      )
+        /*
+              
+                articles.map(async (article) => {
+                  const file = matter.read(`./blog/${article}`, {
+                    excerpt: true,
+                    excerpt_separator: '<!-- more -->'
+                  })
+              
+                  const { data, excerpt, path } = file
+                  const contents = removeMd(excerpt).trim().split(/\r\n|\n|\r/)
+              
+                  return {
+                    ...data,
+                    title: contents[0].replace(/\s{2,}/g, '').trim(),
+                    path: path.replace(/\.md$/, '.html'),
+                    excerpt: contents.slice(1).join('').replace(/\s{2,}/g, '').trim()
+                  }
+                })
+              )
 
-  */
+          */
 
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 
-          console.log('rss post:', data)
+          
 
-          if (data.lang !== 'en')
-            return
+          console.log('rss post:', data)
 
           const html = markdown.render(content)
             .replace('src="/', `src="${ogUrl}/`)
@@ -89,9 +92,9 @@ async function buildBlogRSS() {
             ...data,
             date: new Date(data.date),
             content: html,
-            author: [AUTHOR],
+            author: [author],
             link: ogUrl + i.replace(/^pages(.+)\.md$/, '$1'),
-          }
+          } as Item;
         }),
     ))
     .filter(Boolean)
@@ -99,11 +102,11 @@ async function buildBlogRSS() {
   posts.sort((a, b) => +new Date(b.date) - +new Date(a.date))
 
   await writePostsData(posts);
-  await writeFeed('feed', options, posts)
+  await writeFeed('feed', options, author, posts)
 }
 
-async function writeFeed(name: string, options: FeedOptions, items: Item[]) {
-  options.author = AUTHOR
+async function writeFeed(name: string, options: FeedOptions, author: Author, items: Item[]) {
+  options.author = author
   options.image = ogImage
   options.favicon = `${ogUrl}favicon.png`
 

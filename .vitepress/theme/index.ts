@@ -4,7 +4,9 @@ import { inBrowser } from 'vitepress'
 import '../style/main.css'
 import '../style/vars.css'
 import 'uno.css'
-import HomePage from '../components/HomePage.vue'
+
+import a from '../components/HomePage.vue';
+
 
 if (inBrowser)
   import('./pwa')

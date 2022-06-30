@@ -13,19 +13,23 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
+    // https://vitejs.dev/guide/features.html#typescript-compiler-options
+
+    "isolatedModules": true, 
     "types": [
       "vite/client",
       "vite-plugin-pwa/client",
       "vitepress"
     ],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["./src/*"]
     }
   },
   "include": [
-    "./*.ts",
-    "./.vitepress/**/*.ts",
-    "./.vitepress/**/*.vue"
+    "./**/*.ts",
+    "./**/*.vue",
+    ".vitepress/**/*.ts",
+    ".vitepress/**/*.vue"
   ],
   "exclude": ["dist", "node_modules"]
 }

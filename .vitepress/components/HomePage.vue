@@ -1,8 +1,15 @@
-<script setup lang="ts">
-import {posts} from '../posts'
+<script lang="ts">
+
+import { useData } from 'vitepress'
+
+const { page } = useData()
+
+
 </script>
 
-<template>
+
+<template> 
+  {{page}}
   <div class="content">
     <div class="content-container">
       <main class="main">
@@ -21,3 +28,4 @@ import {posts} from '../posts'
     </div>
   </div>
 </template>
+
