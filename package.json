@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "pnpm run prefetch && vitepress build && esno .vitepress/scripts/build-pwa.ts",
+    "build": "pnpm run prefetch && vitepress build && esno .vitepress/scripts/build-pwa.ts && cp -r .vitepress/dist/* dist/",
     "build-no-prefetch": "vitepress build && esno .vitepress/scripts/build-pwa.ts",
     "dev": "vitepress --port 3333 --open",
     "prefetch": "esno .vitepress/scripts/rss.ts",
