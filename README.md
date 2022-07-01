@@ -1,12 +1,7 @@
 # Chris Towles Blog
 
-towles.dev
+<https://chris.towles.dev>
 
-Site
-
-## Todo
-
-- [ ] which to `eslint-config-airbnb`
 
 ## Thanks to the prior work
 
