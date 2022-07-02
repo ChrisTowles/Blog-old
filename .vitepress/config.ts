@@ -45,7 +45,7 @@ export default defineConfig({
     logo: '/logo.svg',
 
     editLink: {
-      pattern: 'https://github.com/ChrisTowles/Blog/tree/main/docs/:path',
+      pattern: 'https://github.com/ChrisTowles/Blog/tree/main/:path',
       text: 'Suggest changes to this page',
     },
 

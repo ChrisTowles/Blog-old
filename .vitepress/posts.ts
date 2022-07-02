@@ -1,4 +1,4 @@
-import postsJson from './posts-data.json'
+import postsJson from './post-data.json'
 
 export interface PostAuthor {
   name: string,
@@ -20,7 +20,7 @@ export interface PostFeedData {
 // not on how to fake data.
 // const getAvatarUrl = (name: string) => import.meta.hot ? `https://github.com/${name}.png` : `/user-avatars/${name}.png`
 
-const  posts: PostFeedData[] =  (postsJson as PostFeedData[]);
+const  posts: PostFeedData[] =  (postsJson.posts as PostFeedData[]);
 
 
 

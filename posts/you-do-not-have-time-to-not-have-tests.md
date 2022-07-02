@@ -1,5 +1,5 @@
 ---
-title: You do not have time to not have tests.
+title: You do not have time to not have tests
 date: 2021-12-17T16:00:00.000+00:00
 lang: en
 duration: 7 min
@@ -16,7 +16,6 @@ If you were like me, you may have thought you didn't have time to write tests. Y
 Good news, the project is a success.  Now users what new features. You need to and you need to maintain it for a long time. Maybe years in-fact. You need to add features, add different code paths and scenarios. How to you ensure that new features work and old features didn't break?
 
 You manually just have to test them. things like:
-
 
 - Account creation, login, logout, etc.
 - User profile, settings, etc.

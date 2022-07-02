@@ -6,9 +6,9 @@
     "build": "pnpm run prefetch && vitepress build && esno .vitepress/scripts/build-pwa.ts && cp -r .vitepress/dist/* dist/",
     "build-no-prefetch": "vitepress build && esno .vitepress/scripts/build-pwa.ts",
     "dev": "vitepress --port 3333 --open",
-    "prefetch": "esno .vitepress/scripts/rss.ts",
-    "preview-https": "pnpm run build && serve .vitepress/dist",
-    "preview-https-no-prefecth": "pnpm run build-no-prefetch && serve .vitepress/dist",
+    "prefetch": "esno .vitepress/scripts/prefetch.ts",
+    "preview-https": "pnpm run build && serve ./dist",
+    "preview-https-no-prefecth": "pnpm run build-no-prefetch && serve ./dist",
     "serve": "vitepress serve",
     "typecheck": "tsc --noEmit"
   },

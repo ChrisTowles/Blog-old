@@ -1,4 +1,4 @@
-import { dirname } from 'path'
+// import { dirname } from 'path'
 import fg from 'fast-glob'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
@@ -6,47 +6,30 @@ import MarkdownIt from 'markdown-it'
 import type { Author, FeedOptions, Item } from 'feed'
 import { Feed } from 'feed'
 import { ogUrl, ogImage, authorName, email, siteShortName, siteDescription } from '../meta';
-// import { slugify } from './slugify'
-import { resolve } from 'pathe'
+import { dirname } from 'pathe'
 
 
 
 
-const docsDir = resolve(__dirname, '../..')
-const PostsJsonFilePath = resolve(docsDir, '.vitepress/posts-data.json')
-
-
-const author: Author = {
-  name: authorName,
-  email: email,
-  link: ogUrl,
-}
-const markdown = MarkdownIt({
-  html: true,
-  breaks: true,
-  linkify: true,
-})
-
-async function run() {
-  await buildBlogRSS()
-}
-
-async function buildBlogRSS() {
-  const files = await fg('posts/*.md')
-
-  const options = {
-    title: siteShortName,
-    description: siteDescription,
-    id: ogUrl,
-    author: author,
+export function getBlogAuthor(): Author {
+  const author: Author = {
+    name: authorName,
+    email: email,
     link: ogUrl,
-    copyright: `CC BY-NC-SA 4.0 2022 © ${authorName}`,
-    feedLinks: {
-      json: `${ogUrl}feed.json`,
-      atom: `${ogUrl}feed.atom`,
-      rss: `${ogUrl}feed.xml`,
-    },
-  } as FeedOptions;
+  }
+  return author;
+}
+
+export async function buildBlogRSS() {
+  const files = await fg('posts/*.md')
+  const author = getBlogAuthor();
+
+  const markdown = MarkdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  })
+  
   
   const posts: Item[] = (
     await Promise.all(
@@ -78,9 +61,6 @@ async function buildBlogRSS() {
           const raw = await fs.readFile(i, 'utf-8')
           const { data, content } = matter(raw)
 
-          
-
-          console.log('rss post:', data)
 
           const html = markdown.render(content)
             .replace('src="/', `src="${ogUrl}/`)
@@ -101,11 +81,26 @@ async function buildBlogRSS() {
 
   posts.sort((a, b) => +new Date(b.date) - +new Date(a.date))
 
-  await writePostsData(posts);
-  await writeFeed('feed', options, author, posts)
+  return posts;
 }
 
-async function writeFeed(name: string, options: FeedOptions, author: Author, items: Item[]) {
+export async function writeFeed(items: Item[]) {
+  const author = getBlogAuthor();
+
+  const options = {
+    title: siteShortName,
+    description: siteDescription,
+    id: ogUrl,
+    author: author,
+    link: ogUrl,
+    copyright: `CC BY-NC-SA 4.0 2022 © ${authorName}`,
+    feedLinks: {
+      json: `${ogUrl}feed.json`,
+      atom: `${ogUrl}feed.atom`,
+      rss: `${ogUrl}feed.xml`,
+    },
+  } as FeedOptions;
+
   options.author = author
   options.image = ogImage
   options.favicon = `${ogUrl}favicon.png`
@@ -113,19 +108,12 @@ async function writeFeed(name: string, options: FeedOptions, author: Author, ite
   const feed = new Feed(options)
 
   items.forEach(item => feed.addItem(item))
-  items.forEach(i=> console.log(i.title, i.date))
+  //items.forEach(i=> console.log(i.title, i.date))
 
+  const name = 'feed'
   await fs.ensureDir(dirname(`./dist/${name}`))
   await fs.writeFile(`./dist/${name}.xml`, feed.rss2(), 'utf-8')
   await fs.writeFile(`./dist/${name}.atom`, feed.atom1(), 'utf-8')
   await fs.writeFile(`./dist/${name}.json`, feed.json1(), 'utf-8')
 }
 
-async function writePostsData(items: Item[]) {
-  
-
-  console.log(`writing posts data: ${PostsJsonFilePath}`)
-  await fs.writeFile(PostsJsonFilePath, JSON.stringify(items, null, 4), 'utf-8')
-
-}
-run()
