@@ -11,7 +11,8 @@ import { posts } from '../posts'
         <a :href="`${p.link}`" rel="noopener noreferrer" :aria-label="p.title">
           {{ p.title }}</a>
       </h2>
-      <p p="l-4" class="details" v-html="p.content">
+      <p p="l-4" class="details">
+        {{p.content}}
       </p>
     </article>
 
