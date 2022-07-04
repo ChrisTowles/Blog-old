@@ -21,6 +21,6 @@ hero:
       link: https://github.com/ChrisTowles
 
 features:
-  - title: Recent Blog Posts
-    # details: Recent Blog Posts
+  - title: Recent Blog Posts 
+    details: Posts are still a work in progress as i continue work on the site.
 ---

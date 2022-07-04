@@ -9,6 +9,8 @@ So first a full disclosure: I was really late to get on the testing band wagon.
 
 Its shamefully obvious now but I had heard about testing for years before I understood its value. I wish had fully incorporated it into my development practices sooner. So maybe I can convince you to do the same.
 
+<!-- more -->
+
 ## Life without Tests
 
 If you were like me, you may have thought you didn't have time to write tests. You ship features fast and adding tests would slow down the process and a waste time. And the first week or two of a project you may be right.

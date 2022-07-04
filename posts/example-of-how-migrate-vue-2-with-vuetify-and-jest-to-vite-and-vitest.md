@@ -1,11 +1,12 @@
 ---
-title: Example of how migrate vue 2, vuetify to vite and vitest
+title: Example of how migrate Vue 2 with Vuetify and Jest to Vite and Vitest
 date: 2022-01-09T16:00:00.000+00:00
 lang: en
 duration: 15 min
 ---
 
 So my main project at work is a [Vue 2](https://vuejs.org/) and [Vuetify 2](https://vuetifyjs.com/) site, but privately I have been playing with [Vue 3](https://vuejs.org/) and really loved the [Composition API](https://staging.vuejs.org/guide/introduction.html#api-styles) to avoid `mixins`. Due to some new features we are planning building soon. I really wanted to write it in `vue 3`, to prevent needing to migrate it to `vue 3` after it was just finished in `vue 2`.
+<!-- more -->
 
 I wanted to investigate how to migrate from `vue 2` to `Vue 3`. My plan was to use the amazing [Migration Build](https://v3.vuejs.org/guide/migration/migration-build.html) to allow `vue 3` to use most `vue 2` components  during a migration period. Which is much less risky for a large project.
 

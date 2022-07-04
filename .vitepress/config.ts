@@ -10,6 +10,16 @@ import {
   siteDescription,
   authorName,
 } from './meta'
+import { posts } from './posts'
+
+const sideNavLinks = posts.map((x) => {
+  return {
+    text: x.title,
+    link: x.link,
+  };
+})
+
+console.log(sideNavLinks);
 
 
 export default defineConfig({
@@ -48,16 +58,16 @@ export default defineConfig({
       pattern: 'https://github.com/ChrisTowles/Blog/tree/main/:path',
       text: 'Suggest changes to this page',
     },
-
-    algolia: {
-      appId: '00000', // TODO: replace with my appId
-      apiKey: '000000 ', // TODO: replace with my appId
-      indexName: 'vitest',
-      // searchParameters: {
-      //   facetFilters: ['tags:en'],
-      // },
-    },
-
+    /*
+        algolia: {
+          appId: '00000', // TODO: replace with my appId
+          apiKey: '000000 ', // TODO: replace with my appId
+          indexName: 'vitest',
+          // searchParameters: {
+          //   facetFilters: ['tags:en'],
+          // },
+        },
+    */
 
     socialLinks: [
       { icon: 'twitter', link: twitter },
@@ -90,16 +100,10 @@ export default defineConfig({
     ],
 
     sidebar: {
-      // TODO: bring sidebar of apis and config back
       '/': [
         {
           text: 'Posts',
-          items: [
-            {
-              text: 'Posts',
-              link: '/posts/',
-            },
-          ],
+          items: sideNavLinks,
         },
       ],
     },

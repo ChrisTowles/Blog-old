@@ -9,7 +9,7 @@ const rebuildPwa = async () => {
   const pwa = pwaPlugin && !pwaPlugin.disabled
   await optimizePages(pwa)
   if (pwa) {
-    console.log('PWA Plugin: generate service worker')
+    // console.log('PWA Plugin: generate service worker')
 
     // TODO figure it out. 
     //await pwaPlugin.generateSW()

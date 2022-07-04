@@ -13,6 +13,8 @@ And the collusion: "I am a bad developer".
 
 I've been thinking about my software career, not the Craftsmanship. Not just do i write tests or refactor but am i a good developer? For the community, for my self and for my career.
 
+<!-- more -->
+
 Here are a few of the events and things have been on my mind.
 
 ### Tweet reply and Re-tweet from a programming hero

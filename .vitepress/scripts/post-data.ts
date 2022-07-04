@@ -14,14 +14,32 @@ import { json } from 'stream/consumers'
 
 const docsDir = resolve(__dirname, '..')
 
+export interface PostData {
+  title: string;
+  lang: string, 
+  date: Date;
+  content: string; // html
+  link: string;
+
+}
+
+export interface PostDataFile {
+  posts: PostData[];
+}
 
 
-
-export async function buildPostData(): any[] {
+export async function buildPostData(): Promise<PostData[]> {
   const files = await fg('posts/*.md')
 
+  const markdown = MarkdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  })
+  
 
-  const posts: Item[] = (
+
+  const posts: PostData[] = (
     await Promise.all(
       files.filter(i => !i.includes('index'))
         .map(async (postPath) => {
@@ -29,21 +47,23 @@ export async function buildPostData(): any[] {
 
           const file = matter.read(postPath, {
             excerpt: true,
-            excerpt_separator: '<!-- more -->'
+            excerpt_separator: '<!-- more -->',
+
           })
 
-          const { data, excerpt, content, path } = file
+          const { data, excerpt, content } = file
 
-  
+          const html = markdown.render(excerpt || content)
   
           // console.table(file);
 
           const result = {
             ...data,
+            lang: 'en',
             date: new Date(data.date),
-            content: excerpt || content,
+            content: html,
             link: postPath.replace(/\.md$/, '.html'),
-          } as Item;
+          } as PostData;
 
           console.table(result);
           return result;
@@ -66,11 +86,11 @@ export async function buildPostData(): any[] {
   return posts;
 }
 
-export async function writePostData(posts: any[]) {
+export async function writePostData(posts: PostData[]) {
 
   const postFileRaw = JSON.stringify({
     posts: posts
-  }, null, 4);
+  } as PostDataFile, null, 4);
 
 
   const file = join(docsDir, `post-data.json`)

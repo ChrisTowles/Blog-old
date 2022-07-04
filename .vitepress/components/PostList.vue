@@ -3,14 +3,20 @@ import { posts } from '../posts'
 </script>
 
 <template>
-  <div justify-center>
-    <div v-for="p of posts" :key="p.title">
-    <div>
-    <a  :href="`${p.link}`" m-0 rel="noopener noreferrer" :aria-label="p.title">
-    {{ p.title }}
-    </a> 
-    <p></p>
-    </div>
-    </div>
+  <div v-for="p of posts" :key="p.title">
+
+    <article>
+
+      <h2>
+        <a :href="`${p.link}`" rel="noopener noreferrer" :aria-label="p.title">
+          {{ p.title }}</a>
+      </h2>
+      <p p="l-4" class="details" v-html="p.content">
+      </p>
+    </article>
+
+
   </div>
+
+
 </template>
