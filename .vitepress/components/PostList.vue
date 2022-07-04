@@ -12,7 +12,9 @@ import { posts } from '../posts'
           {{ p.title }}</a>
       </h2>
       <p p="l-4" class="details">
-        {{p.content}}
+        <ClientOnly>
+          <div v-html="p.content"></div>
+        </ClientOnly>
       </p>
     </article>
 
