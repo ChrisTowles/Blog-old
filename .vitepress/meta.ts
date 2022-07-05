@@ -3,7 +3,7 @@
 /* Texts */
 export const authorName = 'Chris Towles'
 export const siteShortName = 'Chris.Towles.dev'
-export const siteDescription = 'A blazing fast unit test framework powered by Vite'
+export const siteDescription = 'Full Stack Developer - Usually in Vue, Node with Typescript tinkering with everything else'
 
 /* CDN fonts and styles */
 export const googleapis = 'https://fonts.googleapis.com'
