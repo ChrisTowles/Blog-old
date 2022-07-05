@@ -28,8 +28,6 @@ However now that your project is a success, you can't be breaking things in prod
 
 fast features are shipped, they are not always perfect. They are not always 100% correct. They are not always bug free. They are not always maintainable. They are not always testable.
 
->
-
-I had heard about TTD (test) I was really late to get on the testing band wagon.
-
 ## Tests save Time
+
+> Blog post is still a work in progress
