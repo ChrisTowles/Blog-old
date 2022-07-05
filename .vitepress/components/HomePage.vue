@@ -1,9 +1,5 @@
 <script lang="ts">
-
-
-
 </script>
-
 
 <template>
 
@@ -12,17 +8,10 @@
       <main class="main">
         <div class="vp-doc" flex flex-col items-center mt-10>
 
-          <div text-lg max-w-200  leading-7>
+          <div text-lg max-w-250>
             <PostList />
           </div>
 
-
-
-          <p class="text-center opacity-75">
-            <a href="https://www.netlify.com" rel="noopener noreferrer">
-              <img src="/netlify.svg" alt="Deploys by Netlify" width="114" height="151">
-            </a>
-          </p>
         </div>
       </main>
     </div>
