@@ -81,7 +81,7 @@ export default defineConfig({
 
     nav: [
       //{ text: 'Guide', link: '/guide/' },
-      { text: 'Posts', link: '/post/' },
+      { text: 'Posts', link: '/posts/' },
       //{ text: 'API', link: '/api/' },
       //{ text: 'Config', link: '/config/' },
       /*{
