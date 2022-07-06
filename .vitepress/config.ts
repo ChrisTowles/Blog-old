@@ -9,6 +9,7 @@ import {
   siteShortName,
   siteDescription,
   authorName,
+  googleAnalyticsTag,
 } from './meta'
 import { posts } from './posts'
 
@@ -19,7 +20,7 @@ const sideNavLinks = posts.map((x) => {
   };
 })
 
-console.log(sideNavLinks);
+
 
 
 export default defineConfig({
@@ -43,6 +44,17 @@ export default defineConfig({
     ['link', { href: font, rel: 'stylesheet' }],
     ['link', { rel: 'mask-icon', href: '/logo.svg', color: '#ffffff' }],
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' }],
+
+    
+    ['script', {async: 'async', src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsTag}`} ],
+    ['script', {},  `
+       window.dataLayer = window.dataLayer || [];
+       window.gtag = function(){dataLayer.push(arguments);}
+       window.gtag('js', new Date());
+       window.gtag('config', '${googleAnalyticsTag}');
+    `]
+
+    
   ],
   lastUpdated: true,
   markdown: {
@@ -98,7 +110,7 @@ export default defineConfig({
         ],
       },*/
     ],
-
+    
     sidebar: {
       '/': [
         {

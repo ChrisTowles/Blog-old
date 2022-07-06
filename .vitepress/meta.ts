@@ -15,10 +15,12 @@ export const author = 'Chris Towels';
 export const ogUrl = 'https://chris.towles.dev/'
 export const ogImage = `${ogUrl}og.png`
 export const email = 'hi.chris.towles@gmail.com'
+export const googleAnalyticsTag = 'G-X0H34W6PGC'
 
 /* GitHub and social links */
 export const github = 'https://github.com/ChrisTowles'
 export const twitter = 'https://twitter.com/Chris_Towles'
+
 
 /* Avatar/Image/Sponsors servers */
 export const preconnectLinks = [googleapis, gstatic]
