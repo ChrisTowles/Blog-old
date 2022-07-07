@@ -4,6 +4,7 @@ date: 2022-06-26T16:00:00.000+00:00
 lang: en
 duration: 20 min
 ---
+# {{ $frontmatter.title }}
 
 So a few things have happened lately that have have made reflect on what type of developer I am.
 

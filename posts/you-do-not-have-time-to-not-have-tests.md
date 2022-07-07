@@ -5,6 +5,8 @@ lang: en
 duration: 7 min
 ---
 
+# {{ $frontmatter.title }}
+
 So first a full disclosure: I was really late to get on the testing band wagon.
 
 Its shamefully obvious now but I had heard about testing for years before I understood its value. I wish had fully incorporated it into my development practices sooner. So maybe I can convince you to do the same.

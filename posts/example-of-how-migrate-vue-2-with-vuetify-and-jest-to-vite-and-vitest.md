@@ -5,6 +5,8 @@ lang: en
 duration: 15 min
 ---
 
+# {{ $frontmatter.title }}
+
 So my main project at work is a [Vue 2](https://vuejs.org/) and [Vuetify 2](https://vuetifyjs.com/) site, but privately I have been playing with [Vue 3](https://vuejs.org/) and really loved the [Composition API](https://staging.vuejs.org/guide/introduction.html#api-styles) to avoid `mixins`. Due to some new features we are planning building soon. I really wanted to write it in `vue 3`, to prevent needing to migrate it to `vue 3` after it was just finished in `vue 2`.
 <!-- more -->
 

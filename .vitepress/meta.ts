@@ -11,7 +11,7 @@ export const gstatic = 'https://fonts.gstatic.com'
 export const font = `${googleapis}/css2?family=Readex+Pro:wght@200;400;600&display=swap`
 
 /* head settings */
-export const author = 'Chris Towels';
+export const author = 'Chris Towles';
 export const ogUrl = 'https://chris.towles.dev/'
 export const ogImage = `${ogUrl}og.png`
 export const email = 'hi.chris.towles@gmail.com'

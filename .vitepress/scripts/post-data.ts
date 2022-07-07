@@ -53,7 +53,9 @@ export async function buildPostData(): Promise<PostData[]> {
 
           const { data, excerpt, content } = file
 
-          const html = markdown.render(excerpt || content)
+          let html = markdown.render(excerpt || content)
+
+          html = html.replace("<h1>{{ $frontmatter.title }}</h1>","").trim(); //remove <h1>
   
           // console.table(file);
 
