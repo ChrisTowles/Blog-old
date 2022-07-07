@@ -20,9 +20,6 @@ const sideNavLinks = posts.map((x) => {
   };
 })
 
-
-
-
 export default defineConfig({
   lang: 'en-US',
   title: authorName,
@@ -45,16 +42,16 @@ export default defineConfig({
     ['link', { rel: 'mask-icon', href: '/logo.svg', color: '#ffffff' }],
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' }],
 
-    
-    ['script', {async: 'async', src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsTag}`} ],
-    ['script', {},  `
+
+    ['script', { defer: 'defer', src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsTag}` }],
+    ['script', { defer: 'defer' }, `
        window.dataLayer = window.dataLayer || [];
        window.gtag = function(){dataLayer.push(arguments);}
        window.gtag('js', new Date());
        window.gtag('config', '${googleAnalyticsTag}');
     `]
 
-    
+
   ],
   lastUpdated: true,
   markdown: {
@@ -110,7 +107,7 @@ export default defineConfig({
         ],
       },*/
     ],
-    
+
     sidebar: {
       '/': [
         {

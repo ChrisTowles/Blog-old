@@ -67,17 +67,8 @@ export async function buildPostData(): Promise<PostData[]> {
             link: postPath.replace(/\.md$/, '.html'),
           } as PostData;
 
-          console.table(result);
           return result;
 
-                  /*
-              return {
-                ...data,
-                title: contents[0].replace(/\s{2,}/g, '').trim(),
-                path: path.replace(/\.md$/, '.html'),
-                excerpt: contents.slice(1).join('').replace(/\s{2,}/g, '').trim()
-              }
-*/
         }),
     ))
     .filter(Boolean)
