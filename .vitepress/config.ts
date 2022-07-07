@@ -43,14 +43,15 @@ export default defineConfig({
     ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' }],
 
 
-    ['script', { defer: 'defer', src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsTag}` }],
-    ['script', { defer: 'defer' }, `
+    ['script', { async: 'async', src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsTag}` }],
+    ['script', { async: 'async' }, `
        window.dataLayer = window.dataLayer || [];
        window.gtag = function(){dataLayer.push(arguments);}
        window.gtag('js', new Date());
        window.gtag('config', '${googleAnalyticsTag}');
-    `]
-
+    `],
+    // twitter embeds
+    ['script', { async: 'async', src: `https://platform.twitter.com/widgets.js` }],
 
   ],
   lastUpdated: true,
