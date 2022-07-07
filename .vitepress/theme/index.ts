@@ -1,6 +1,6 @@
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
-import { EnhanceAppContext } from 'vitepress'
+import { EnhanceAppContext, inBrowser } from 'vitepress'
 import '../style/main.css'
 import '../style/vars.css'
 import 'uno.css'
@@ -24,14 +24,17 @@ export default {
   },
   enhanceApp(ctx: EnhanceAppContext) {
     watch(ctx.router.route, () => {
-      
-      // send GA page_view event
-      if (window && (window as WindowWithGtag).gtag) {
-        (window as WindowWithGtag).gtag('event', 'page_view', {
-         page_path: ctx.router.route.path,
-        })
+
+      if (inBrowser) {
+        // send GA page_view event
+        if ((window as WindowWithGtag).gtag) {
+          (window as WindowWithGtag).gtag('event', 'page_view', {
+            page_path: ctx.router.route.path,
+          })
+        }
       }
-      
+
+
     })
   }
 }
