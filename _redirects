@@ -1,0 +1,5 @@
+# https://docs.netlify.com/routing/redirects/>
+# https://docs.netlify.com/routing/redirects/redirect-options/
+
+# test redirect
+/test   https://github.com
