@@ -1,7 +1,13 @@
 # https://docs.netlify.com/routing/redirects/
 # https://docs.netlify.com/routing/redirects/redirect-options/
 
-# test redirect
-/test   https://github.com   302
+# Changed blog post name
+/posts/i-am-a-bad-developer.html    /posts/i-am-a-dark-matter-developer.html    301
+/posts/example-of-how-migrate-vue-2-with-vuetify-and-jest-to-vite-and-vitest.html /posts/migrate-vue-2-with-vuetify-and-jest-to-vite-and-vitest.html 301
+
+
+
+# test redirects
+/test               https://github.com   302
 
 

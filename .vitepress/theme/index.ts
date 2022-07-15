@@ -9,11 +9,14 @@ import { watch } from 'vue'
 
 import HomePage from '../components/HomePage.vue';
 
-type WindowWithGtag = (typeof window) & {
+type WindowConfig = (typeof window) & {
   gtag: Function;
+  twttr: {
+    widgets: {
+      load: () => void;
+    }
+  }
 }
-//if (inBrowser)
-//  import('./pwa')
 
 export default {
   ...Theme,
@@ -27,10 +30,15 @@ export default {
 
       if (inBrowser) {
         // send GA page_view event
-        if ((window as WindowWithGtag).gtag) {
-          (window as WindowWithGtag).gtag('event', 'page_view', {
+        if ((window as WindowConfig).gtag) {
+          (window as WindowConfig).gtag('event', 'page_view', {
             page_path: ctx.router.route.path,
           })
+        }
+
+        // added by twitter widget script
+        if ((window as WindowConfig).twttr) {
+          (window as WindowConfig).twttr.widgets.load()
         }
       }
 
